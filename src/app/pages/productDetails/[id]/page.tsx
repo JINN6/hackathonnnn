@@ -1,22 +1,29 @@
 'use client';
 
 import { useRouter } from 'next/navigation';  // Correct hook for route parameters in Next.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import productData from '@/utils/ProductData';
 import Footer from '@/app/components/Footer';
 import Header from '@/app/components/Header';
 import Link from 'next/link';
+import Image from 'next/image';  // For image optimization in Next.js
 
 const Page = () => {
   const router = useRouter();
   const { id } = router.query;  // Accessing the dynamic parameter using `router.query`
-  
-  const paramID = id as string;
-  const filterData = productData.filter((item) => item.id === Number(paramID));
-  const dataFilter = filterData[0];
+
+  const [dataFilter, setDataFilter] = useState<any>(null);
+
+  useEffect(() => {
+    if (id) {
+      const paramID = id as string;
+      const filterData = productData.filter((item) => item.id === Number(paramID));
+      setDataFilter(filterData[0]);
+    }
+  }, [id]);  // Re-run when `id` changes
 
   if (!dataFilter) {
-    return <div>Product not found</div>;  // Handle case if product is not found
+    return <div>Loading...</div>;  // Handle case if product data is not yet available
   }
 
   return (
@@ -26,10 +33,12 @@ const Page = () => {
         <section className="text-gray-600 body-font overflow-hidden">
           <div className="container px-5 py-24 mx-auto">
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
-              <img
+              <Image
                 alt="ecommerce"
                 className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
                 src={dataFilter?.imageUrl}
+                width={500}  // Specify image dimensions for optimization
+                height={500} // Specify image dimensions for optimization
               />
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                 <h2 className="text-sm title-font text-gray-500 tracking-widest">
@@ -96,13 +105,13 @@ const Page = () => {
                   </span>
                   <div className="flex gap-4 mr-20">
                     <Link href="/pages/cart">
-                      <button className="flex ml-auto bg-white text-black  border  border border-black border-2 hover:text-white hover:bg-black hover:text-white border-0 py-2 px-6 focus:outline-none rounded">
+                      <button className="flex ml-auto bg-white text-black border border-black hover:text-white hover:bg-black py-2 px-6 rounded">
                         Add to Cart
                       </button>
                     </Link>
 
                     <Link href="/pages/checkout">
-                      <button className="flex ml-auto py-2 px-6 focus:outline-none  bg-white text-black  border  border border-black border-2 hover:text-white hover:bg-black hover:text-white  rounded">
+                      <button className="flex ml-auto bg-white text-black border border-black hover:text-white hover:bg-black py-2 px-6 rounded">
                         Checkout
                       </button>
                     </Link>
