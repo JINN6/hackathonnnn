@@ -29,7 +29,7 @@ export default function About() {
         <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
           <h2 className="text-2xl font-semibold text-[#1D1743] mb-4">Quality & Value</h2>
           <p className="text-gray-600">
-            We carefully select our products to ensure quality and value. Whether you're looking for fashion, home decor, or tech accessories, we guarantee satisfaction with every purchase.
+            We carefully select our products to ensure quality and value. Whether you&apos;re looking for fashion, home decor, or tech accessories, we guarantee satisfaction with every purchase.
           </p>
         </div>
       </section>

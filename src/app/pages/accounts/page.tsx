@@ -1,13 +1,21 @@
+'use client'
+
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import TextData from "@/app/components/TextData";
+import Image from "next/image"; // Importing Image from Next.js
 
-const page = () => {
+const Page = () => {
   return (
     <div>
       <Header />
       <div>
-        <img src="/images/account.png" alt="" />
+        <Image 
+          src="/images/account.png" 
+          alt="Account Image" 
+          width={500} 
+          height={300} 
+        />
       </div>
       <div className="flex justify-center items-center gap-8">
         <div className="flex flex-col m-20">
@@ -43,9 +51,9 @@ const page = () => {
         </div>
 
         <div className="flex flex-col m-20">
-          <h1>Log in</h1>
+          <h1>Forgot Password</h1>
           <div className="flex flex-col my-4">
-            <label htmlFor=""> email address</label>
+            <label htmlFor="">Email address</label>
             <input
               className="h-[40px] w-[250px] border-2 rounded-md"
               type="text"
@@ -54,7 +62,7 @@ const page = () => {
             />
           </div>
 
-          <div className="flex flex-col my-4  text-sm w-[300px]">
+          <div className="flex flex-col my-4 text-sm w-[300px]">
             <span>
               A link to set a new password will be sent to your email address.
             </span>
@@ -69,15 +77,14 @@ const page = () => {
               <button className="h-[40px] w-[150px] border-2 rounded-md">
                 Register
               </button>
-             
             </div>
           </div>
-      </div>
         </div>
-        <TextData />
-        <Footer />
+      </div>
+      <TextData />
+      <Footer />
     </div>
   );
 };
 
-export default page;
+export default Page;
