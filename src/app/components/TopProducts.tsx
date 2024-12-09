@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../components/common/Card'
-import productData from '../../utils/productData.js'
+import productData from '../../utils/ProductData'
 import Link from 'next/link'
 const TopProducts = () => {
    

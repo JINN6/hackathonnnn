@@ -2,7 +2,7 @@ import Card from "@/app/components/common/Card";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import TextData from "@/app/components/TextData";
-import productData from "@/utils/productData.js";
+import productData from "@/utils/productData";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
