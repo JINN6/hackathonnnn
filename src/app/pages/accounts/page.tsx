@@ -13,7 +13,7 @@ const Page = () => {
         <Image 
           src="/images/account.png" 
           alt="Account Image" 
-          width={500} 
+          width={1440} 
           height={300} 
         />
       </div>
