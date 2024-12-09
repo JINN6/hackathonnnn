@@ -1,7 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
 import React from "react";
-import productData from "@/utils/productData";
+import productData from "@/utils/ProductData";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import Link from "next/link";
